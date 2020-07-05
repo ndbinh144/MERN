@@ -33,3 +33,12 @@ a {
 .item {
   width: 30%;
 }
+.home {
+  
+}
+
+.home-card {
+  margin: 26px auto;
+  max-width: 500px;
+  height: max-content;
+}
