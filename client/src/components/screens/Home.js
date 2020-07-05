@@ -10,7 +10,6 @@ const Home = () => {
             },
         }).then(rs => rs.json())
         .then(result => {
-            console.log(result);
             setData(result.posts);
         })
         .catch(err => {
