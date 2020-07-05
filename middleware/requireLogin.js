@@ -19,9 +19,9 @@ module.exports = (req, res, next) => {
         }
 
         const {_id} = payload;
-        User.findOne(_id).then(userData => {
-            req.user = userData
+        User.findOne({_id}).then(userData => {
+            req.user = userData;
+            next();
         });
-        next();
     });
 }
