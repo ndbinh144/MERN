@@ -1,9 +1,10 @@
-import React, {useContext} from "react";
-import {Link} from 'react-router-dom';
-import {UserContext} from '../App';
+import React, { useContext } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { UserContext } from "../App";
 
 const NavBar = () => {
-  const {state, dispatch} = useContext(UserContext);
+  const history = useHistory();
+  const { state, dispatch } = useContext(UserContext);
   const RenderList = () => {
     if (state) {
       return (
@@ -13,6 +14,20 @@ const NavBar = () => {
           </li>
           <li>
             <Link to="/create">Create Post</Link>
+          </li>
+          <li>
+            <button
+              className="btn waves-effect waves-light #d32f2f red darken-2"
+              onClick={() => {
+                localStorage.clear();
+                dispatch({
+                  type: "CLEAR",
+                })
+                history.push('/login');
+              }}
+            >
+              LogOut
+            </button>
           </li>
         </>
       );
@@ -28,7 +43,7 @@ const NavBar = () => {
         </>
       );
     }
-  }
+  };
   return (
     <nav>
       <div className="nav-wrapper white">
