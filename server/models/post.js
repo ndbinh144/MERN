@@ -23,6 +23,10 @@ const postSchema = new mongoose.Schema({
       ref: "User",
     },
   ],
+  comments: [{
+    text: String,
+    postedBy: {type: ObjectId, ref:"User"},
+  }]
 });
 
 mongoose.model("Post", postSchema);

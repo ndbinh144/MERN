@@ -11,7 +11,7 @@ const Profile = () => {
         Authorization: "Bearer " + localStorage.getItem('jwt'),
 
       }
-    }).then(rs => rs.json())
+    }).then(rs => rs.json()
     .then(data => {
       setPics(data.mypost);
     }).catch(err => {
